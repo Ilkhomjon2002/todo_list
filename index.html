@@ -19,19 +19,35 @@
 		<div class="container">
 			<div class="todoTable">
 				<div class="boxTable">
-					<h2>TODO LIST</h2>
+					<h2>2 Tasks</h2>
+
+					<div class="list">
+						<table id="table">
+							<tr>
+								<td class="value stroke">Done</td>
+								<td>
+									<button class="done">Done</i></button>
+									<button class="del">Delete</i></button>
+								</td>
+							</tr>
+							<tr>
+								<td class="value" >Homework</td>
+								<td>
+									<button class="done">Done</i></button>
+									<button class="del">Delete</i></button>
+								</td>
+							</tr>
+						</table>
+					</div>
 					<form id="myForm" class="myForm" name="form">
 						<input
 							type="text"
 							name="todoInput"
 							class="inputText"
-							placeholder="Task..."
+							placeholder="Add Tasks..."
 						/>
-						<button id="btnSubmit" class="btnSubmit">Submit</button>
+						<button id="btnSubmit" class="btnSubmit">Add</button>
 					</form>
-					<div class="list">
-						<table id="table"></table>
-					</div>
 				</div>
 			</div>
 		</div>

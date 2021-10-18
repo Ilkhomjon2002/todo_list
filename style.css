@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	font-size: 16px;
 }
 
 body {
@@ -13,43 +14,54 @@ body {
 
 	justify-content: center;
 	align-items: center;
-	background-color: red;
+	background-color: #fc7d74 !important;
 }
 .todoTable {
 	display: flex;
 	text-align: center;
 	justify-content: center;
-	color: white;
+	color: black;
 }
 .inputText {
 	border: none;
 	outline: none;
-	color: royalblue;
+	color: black;
 	padding: 5px;
 }
 .myForm {
-	border: 1px solid royalblue;
 	display: flex;
 	justify-content: center;
+	margin-top: 20px;
+}
+.myForm input {
+	color: rgb(65, 65, 65);
+	border: 1px solid rgb(184, 184, 184);
+	border-radius: 20px;
+	margin-right: 10px;
+	width: 100%;
 }
 .btnSubmit {
-	border: none;
-	background-color: #153084;
-	color: white;
-	padding: 5px;
+	border: 2px solid rgb(128, 128, 128);
+	border-radius: 20px;
+	font-weight: 700;
+	background-color: white;
+	color: rgb(134, 134, 134);
+	padding: 6px 8px;
 	transition: 0.2s ease-in-out;
 }
-.btnSubmit:hover {
-	background-color: rgb(103, 126, 196);
-}
+
 .boxTable {
-	background-color: royalblue;
+	background-color: white;
 	padding: 20px;
+	border-radius: 20px;
+	box-shadow: 10px 10px 30px 20px #0000003d;
+	width: 500px;
+	height: 600px;
 }
 .list {
 	margin-top: 30px;
-	background-color: royalblue;
-	height: 250px;
+	background-color: white;
+	height: 400px;
 	overflow-y: scroll;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
@@ -57,30 +69,40 @@ body {
 table {
 	width: 100%;
 }
+
 tr {
 	display: flex;
 	justify-content: space-between;
 	background-color: white;
-	color: royalblue;
+	color: black;
 	padding: 5px;
-	border-bottom: 2px solid royalblue !important;
+	overflow: hidden;
 	align-items: center;
 }
-td:first-letter {
-	font-size: 0;
-	opacity: 0;
+td {
+	width: 200px;
 }
+.value {
+	font-size: 22px;
+	text-align: left;
+
+	height: 1.4em;
+	overflow: hidden;
+}
+
 .done {
-	border: none;
+	border: 2px grey solid;
+	border-radius: 20px;
 	background-color: white;
-	color: royalblue;
+	color: rgb(82, 82, 82);
 	padding: 5px;
 }
 
 .del {
-	border: none;
+	border: 2px grey solid;
+	border-radius: 20px;
 	background-color: white;
-	color: royalblue;
+	color: rgb(82, 82, 82);
 	padding: 5px;
 }
 .stroke {

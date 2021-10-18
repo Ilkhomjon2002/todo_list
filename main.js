@@ -30,9 +30,9 @@ class TODO {
 	}
 	createElement(value) {
 		const trow = document.createElement("tr");
-		trow.innerHTML = `<td>${this.counter}-${value}</td><td>
-        <button class="done" ><i class="fas fa-check"></i></button>
-        <button class="del" ><i class="fas fa-ban"></i></button></td>`;
+		trow.innerHTML = `<td class="value">${this.counter}-${value}</td><td>
+        <button class="done" >Done</i></button>
+        <button class="del" >Delete</button></td>`;
 
 		this.counter++;
 		this.table.appendChild(trow);
@@ -48,6 +48,7 @@ class TODO {
 			if (localStorage.getItem("tasks") == null) {
 				localStorage.setItem("tasks", JSON.stringify(this.arrayOfTasks));
 			} else {
+				localStorage.removeItem("tasks");
 				localStorage.setItem("tasks", JSON.stringify(this.arrayOfTasks));
 			}
 		});
