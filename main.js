@@ -4,6 +4,16 @@ class TODO {
 		this.input = form.todoInput;
 		this.table = document.getElementById("table");
 		this.arrayOfTasks = [];
+		this.counter = 0;
+	}
+	onLocalGet() {
+		if (JSON.parse(localStorage.getItem("tasks")) != null) {
+			this.arrayOfTasks = JSON.parse(localStorage.getItem("tasks"));
+			for (let i = 0; i < this.arrayOfTasks.length; i++) {
+				this.counter = i;
+				this.createElement(this.arrayOfTasks[i]);
+			}
+		}
 	}
 
 	validate(value, minLength) {
@@ -12,27 +22,34 @@ class TODO {
 	onSubmit(e) {
 		e.preventDefault();
 		if (this.validate(this.input.value, 3)) {
-			console.log(this.input.value);
 			this.createElement(this.input.value);
+			this.onLocalSet(this.input.value);
 		} else {
 			alert("Invalid form");
 		}
 	}
 	createElement(value) {
 		const trow = document.createElement("tr");
-		trow.innerHTML = `<td>${value}</td><td>
+		trow.innerHTML = `<td>${this.counter}-${value}</td><td>
         <button class="done" ><i class="fas fa-check"></i></button>
         <button class="del" ><i class="fas fa-ban"></i></button></td>`;
 
+		this.counter++;
 		this.table.appendChild(trow);
 		this.onDel(trow);
 		this.onDone(trow);
-		this.onLocalSet(this.input.value);
 	}
 
 	onDel(trow) {
 		trow.childNodes[1].childNodes[3].addEventListener("click", (e) => {
 			trow.parentNode.removeChild(trow);
+			let rowOfTasks = trow.childNodes[0].textContent.split("");
+			this.arrayOfTasks.splice(rowOfTasks[0], 1);
+			if (localStorage.getItem("tasks") == null) {
+				localStorage.setItem("tasks", JSON.stringify(this.arrayOfTasks));
+			} else {
+				localStorage.setItem("tasks", JSON.stringify(this.arrayOfTasks));
+			}
 		});
 	}
 	onDone(trow) {
@@ -42,7 +59,6 @@ class TODO {
 	}
 	onLocalSet(value) {
 		this.arrayOfTasks.push(value);
-		console.log(this.arrayOfTasks);
 		localStorage.setItem("tasks", JSON.stringify(this.arrayOfTasks));
 	}
 }
@@ -50,3 +66,6 @@ class TODO {
 let form = new TODO(document.forms.form);
 
 form.form.addEventListener("submit", form.onSubmit.bind(form));
+window.onload = () => {
+	form.onLocalGet();
+};

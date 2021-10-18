@@ -66,6 +66,10 @@ tr {
 	border-bottom: 2px solid royalblue !important;
 	align-items: center;
 }
+td:first-letter {
+	font-size: 0;
+	opacity: 0;
+}
 .done {
 	border: none;
 	background-color: white;
